@@ -31,7 +31,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
   int currentPage = 0;
 
   final List<String> images = [
-    //put ima
+    //put image 
     "assets/t2.jpg",
     "assets/t3.jpg",
     "assets/t4.jpg",
@@ -60,7 +60,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
     return Scaffold(
       body: Stack(
         children: [
-<<<<<<< HEAD
+
           // FULL-SCREEN IMAGE SLIDER
           PageView.builder(
             controller: _pageController,
@@ -92,8 +92,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
               ),
             ),
           ),
-=======
->>>>>>> f4c4e1783c03ca98b0174660df82fd6702a5b0cd
+
           // CONTENT ON TOP
           SafeArea(
             child: Padding(
@@ -124,7 +123,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
 
                   const SizedBox(height: 20),
 
-<<<<<<< HEAD
+
                   // DOT INDICATORS
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -134,9 +133,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
                     ),
                   ),
 
-=======
-                  //
->>>>>>> f4c4e1783c03ca98b0174660df82fd6702a5b0cd
+
                   const SizedBox(height: 25),
 
                   // BUTTON
@@ -174,7 +171,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
             ),
           ),
         ],
-<<<<<<< HEAD
+
       ),
     );
   }
@@ -188,8 +185,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
       decoration: BoxDecoration(
         color: isActive ? Colors.white : Colors.white54,
         borderRadius: BorderRadius.circular(10),
-=======
->>>>>>> f4c4e1783c03ca98b0174660df82fd6702a5b0cd
+
       ),
     );
   }
