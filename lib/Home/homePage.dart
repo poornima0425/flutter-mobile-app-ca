@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:mobile_app_ca/TravelPlaceDetails/placeFive.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/placeFour.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/placeOne.dart';
@@ -483,8 +482,3 @@ class CategoryCard extends StatelessWidget {
     );
   }
 }
-=======
-
-
-
->>>>>>> SEU/IS/20/ICT/051

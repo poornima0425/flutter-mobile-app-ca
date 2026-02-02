@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'LoginPage/loginPage.dart';
-import 'SignUpPage/signuppage.dart';
+import 'package:mobile_app_ca/SignUpPage/signuppage.dart';
 
 void main() {
   runApp(const MyApp());
