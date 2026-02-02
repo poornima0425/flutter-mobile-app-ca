@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app_ca/SignUpPage/signuppage.dart';
+
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -14,6 +16,7 @@ class SignUpPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               // Back Button
               IconButton(
                 icon: const Icon(Icons.arrow_back),
@@ -149,6 +152,7 @@ class SignUpPage extends StatelessWidget {
                   ),
                 ],
               ),
+
             ],
           ),
         ),
