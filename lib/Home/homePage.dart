@@ -8,7 +8,10 @@ import 'package:mobile_app_ca/TravelPlaceDetails/placeTwo.dart';
 import 'package:mobile_app_ca/FavouritePage/favouritePage.dart';
 import 'package:mobile_app_ca/ProfilePage/profilePage.dart';
 import 'package:mobile_app_ca/SearchPage/searchPage.dart';
-//import 'package:mobile_app_ca/TravelPlaceDetails/natureLoversPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/natureLoversPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/familyTripsPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/budgetTripsPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/wildlifeSafarisPage.dart';
 
 void main() {
   runApp(const MyApp());

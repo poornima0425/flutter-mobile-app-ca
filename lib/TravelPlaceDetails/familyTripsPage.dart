@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NatureLoversPage extends StatelessWidget {
-  const NatureLoversPage({super.key});
+class FamilyTripsPage extends StatelessWidget {
+  const FamilyTripsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEAF4FF),
+      backgroundColor: const Color(0xFFEAF4FF), // same light blue background
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: const Icon(Icons.arrow_back_ios, color: Colors.black),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: Icon(Icons.more_horiz, color: Colors.black),
-          )
+          ),
         ],
         title: const Text(
-          "Discover Waterfalls",
+          "Best Family Trips",
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w600,
@@ -34,99 +37,49 @@ class NatureLoversPage extends StatelessWidget {
         child: Column(
           children: [
             const Text(
-              "Top 10 Beautiful Waterfalls in Sri Lanka",
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+              "Family-friendly destinations in Sri Lanka",
+              style: TextStyle(fontSize: 14, color: Colors.grey, height: 1.4),
             ),
-
             const SizedBox(height: 20),
 
-            // 1
-            NatureSpotCard(
-              image: const AssetImage("assets/img35.jpg"),
-              title: "Bomburu waterfall",
-              description: "Bomburu Ella is one of the most breathtaking waterfallbin Sri Lanka.",
-              rating: "4.9",
-              onTap: () {},
-            ),
-
-            // 2
-            NatureSpotCard(
-              image: const AssetImage("assets/img36.jpg"),
-              title: "Bambarakanda Falls",
-              description: "The tallest waterfall in Sri Lanka. A must visit.",
-              rating: "4.8",
-              onTap: () {},
-            ),
-
-            // 3
-            NatureSpotCard(
-              image: const AssetImage("assets/img37.jpg"),
-              title: "Ravana Falls - Ella",
-              description: "Popular waterfall near Ella caves and forests.",
+            // Cards
+            FamilySpotCard(
+              image: const AssetImage("assets/elephant1.jpg"),
+              title: "Pinnawala Elephant Orphanage",
+              description: "Spend time with elephants and enjoy nature.",
               rating: "4.7",
               onTap: () {},
             ),
 
-            // 4
-            NatureSpotCard(
-              image: const AssetImage("assets/img38.jpg"),
-              title: "Dunhinda Falls",
-              description: "Famous smoky waterfall located in Badulla.",
-              rating: "4.9",
-              onTap: () {},
-            ),
-
-            // 5
-            NatureSpotCard(
-              image: const AssetImage("assets/img39.jpg"),
-              title: "Bopath Ella",
-              description: "Shaped like a Bo leaf. Located in Ratnapura.",
+            FamilySpotCard(
+              image: const AssetImage("assets/img1.jpg"),
+              title: "Peradeniya Botanical Garden",
+              description: "Perfect for a relaxing walk with family.",
               rating: "4.8",
               onTap: () {},
             ),
 
-            // 6
-            NatureSpotCard(
-              image: const AssetImage("assets/img40.jpg"),
-              title: "Laxapana Falls",
-              description: "A tall waterfall surrounded by lush greenery.",
-              rating: "4.7",
-              onTap: () {},
-            ),
-
-            // 7
-            NatureSpotCard(
-              image: const AssetImage("assets/img41.jpg"),
-              title: "St. Clair’s Falls",
-              description: "Known as the ‘Little Niagara of Sri Lanka’.",
-              rating: "4.8",
-              onTap: () {},
-            ),
-
-            // 8
-            NatureSpotCard(
-              image: const AssetImage("assets/img42.jpg"),
-              title: "Devon Falls",
-              description: "Beautiful cascading waterfall near Hatton.",
-              rating: "4.7",
-              onTap: () {},
-            ),
-
-            // 9
-            NatureSpotCard(
-              image: const AssetImage("assets/img43.jpg"),
-              title: "Aberdeen Falls",
-              description: "A hidden gem with a deep natural pool.",
-              rating: "4.8",
-              onTap: () {},
-            ),
-
-            // 10
-            NatureSpotCard(
-              image: const AssetImage("assets/img44.jpg"),
-              title: "Kirindi Ella",
-              description: "Tall elegant waterfall located in Pelmadulla.",
+            FamilySpotCard(
+              image: const AssetImage("assets/img2.jpg"),
+              title: "Galle Fort",
+              description: "A historical place with beautiful scenery.",
               rating: "4.6",
+              onTap: () {},
+            ),
+
+            FamilySpotCard(
+              image: const AssetImage("assets/img3.jpg"),
+              title: "Udawalawe Safari Park",
+              description: "Enjoy a wildlife safari with kids.",
+              rating: "4.9",
+              onTap: () {},
+            ),
+
+            FamilySpotCard(
+              image: const AssetImage("assets/img4.jpg"),
+              title: "Seethawaka Botanical Garden",
+              description: "Peaceful garden with lush greenery.",
+              rating: "4.7",
               onTap: () {},
             ),
           ],
@@ -136,16 +89,16 @@ class NatureLoversPage extends StatelessWidget {
   }
 }
 
-// ------------------ CARD DESIGN ------------------
+// ------------------ CARD STYLE (Same as NatureSpotCard) ------------------
 
-class NatureSpotCard extends StatelessWidget {
+class FamilySpotCard extends StatelessWidget {
   final ImageProvider image;
   final String title;
   final String description;
   final String rating;
   final VoidCallback onTap;
 
-  const NatureSpotCard({
+  const FamilySpotCard({
     super.key,
     required this.image,
     required this.title,
@@ -185,6 +138,7 @@ class NatureSpotCard extends StatelessWidget {
               ),
             ),
 
+            // Text Area
             Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
@@ -197,7 +151,6 @@ class NatureSpotCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
                   const SizedBox(height: 6),
 
                   Text(
@@ -207,7 +160,6 @@ class NatureSpotCard extends StatelessWidget {
                       color: Colors.grey[700],
                     ),
                   ),
-
                   const SizedBox(height: 10),
 
                   Row(
@@ -232,5 +184,3 @@ class NatureSpotCard extends StatelessWidget {
     );
   }
 }
-
-
