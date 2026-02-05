@@ -1,21 +1,9 @@
 import 'package:flutter/material.dart';
 
-class PlaceTwo extends StatelessWidget {
-  const PlaceTwo({
-    super.key,
+class PlaceSeven extends StatelessWidget {
+  const PlaceSeven({ super.key,
     required String title,
-    required ImageProvider<Object> image,
-  });
-
-  // ---- ADD THIS LIST OF 4 IMAGES ----
-  final List<String> previewImages = const [
-    "assets/t21.jpg",
-    "assets/t22.jpg",
-    "assets/t23.jpg",
-    "assets/t24.jpg",
-  ];
-
-
+    required ImageProvider<Object> image,});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +12,7 @@ class PlaceTwo extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // -------- IMAGE HEADER --------
+            // -------- HEADER IMAGE --------
             Stack(
               children: [
                 Container(
@@ -35,7 +23,7 @@ class PlaceTwo extends StatelessWidget {
                       bottomRight: Radius.circular(30),
                     ),
                     image: DecorationImage(
-                      image: AssetImage("assets/t27.png"),
+                      image: AssetImage("assets/G_beach2.jpg"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -74,7 +62,7 @@ class PlaceTwo extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        "Nuwara Eliya",
+                        "Galle Beach",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -84,7 +72,7 @@ class PlaceTwo extends StatelessWidget {
                         text: const TextSpan(
                           children: [
                             TextSpan(
-                              text: "\$48",
+                              text: "\$35",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,
@@ -111,62 +99,32 @@ class PlaceTwo extends StatelessWidget {
                     children: const [
                       Icon(Icons.location_on, size: 16, color: Colors.blue),
                       SizedBox(width: 4),
-                      Text("Central Province", style: TextStyle(color: Colors.grey)),
+                      Text("Galle, Southern Province",
+                          style: TextStyle(color: Colors.grey)),
                     ],
                   ),
 
                   const SizedBox(height: 14),
 
+                  // ---- DESCRIPTION ----
                   Text(
-                    "Nuwara Eliya is a beautiful hill-country city in the Central Province of Sri Lanka. "
-                    "It sits at a high elevation of about 1,868 meters, making it the coolest place in the country. "
-                    "The city is surrounded by misty mountains, waterfalls, and tea estates, giving it a calm and "
-                    "refreshing environment.\n\n"
-                    "Nuwara Eliya is also called ‘Little England’ because many old buildings, gardens, and hotels "
-                    "still show British colonial style. It is an important area for tea production and is overlooked "
-                    "by Pidurutalagala, the tallest mountain in Sri Lanka. Visitors enjoy the cool climate, scenic "
-                    "views, and historical charm of this beautiful city.",
+                    "Galle Beach is one of the most peaceful coastal areas in Sri Lanka, "
+                    "famous for its golden sand, clear blue waters, and calm relaxing atmosphere. "
+                    "Located near the historic Galle Fort, the beach attracts travelers for its "
+                    "sunsets, photography spots, and ocean breeze.\n\n"
+                    "Visitors can walk along the seaside, explore the Dutch fort walls, enjoy "
+                    "local food stalls, or simply relax in the warm sunlight. "
+                    "Galle Beach is a perfect destination for families, couples, and solo travelers "
+                    "who want to experience the charm of the southern coast.",
                     style: TextStyle(color: Colors.grey),
                     textAlign: TextAlign.justify,
                   ),
 
                   const SizedBox(height: 20),
 
-                  // ---------------------------------
-                  //         PREVIEW SECTION
-                  // ---------------------------------
-                  const Text(
-                    "Preview",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
+                  
 
-                  const SizedBox(height: 12),
-
-                  // Preview images (UPDATED)
-                  SizedBox(
-                    height: 70,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: previewImages.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          width: 70,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            image: DecorationImage(
-                              image: AssetImage(previewImages[index]),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-
-                  const SizedBox(height: 25),
-
-                  // Book button
+                  // ---- BOOK NOW BUTTON ----
                   SizedBox(
                     width: double.infinity,
                     height: 50,
@@ -193,7 +151,7 @@ class PlaceTwo extends StatelessWidget {
     );
   }
 
-  // Icon Button Widget
+  // Reusable Icon Button
   Widget _iconButton(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
@@ -204,16 +162,4 @@ class PlaceTwo extends StatelessWidget {
       child: Icon(icon),
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-  }
-
+}

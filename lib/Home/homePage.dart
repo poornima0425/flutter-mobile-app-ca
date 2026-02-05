@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app_ca/TravelPlaceDetails/placeFive.dart';
-import 'package:mobile_app_ca/TravelPlaceDetails/placeFour.dart';
-import 'package:mobile_app_ca/TravelPlaceDetails/placeOne.dart';
-import 'package:mobile_app_ca/TravelPlaceDetails/placeSix.dart';
-import 'package:mobile_app_ca/TravelPlaceDetails/placeThree.dart';
-import 'package:mobile_app_ca/TravelPlaceDetails/placeTwo.dart';
-import 'package:mobile_app_ca/FavouritePage/favouritePage.dart';
 import 'package:mobile_app_ca/ProfilePage/profilePage.dart';
 import 'package:mobile_app_ca/SearchPage/searchPage.dart';
-//import 'package:mobile_app_ca/TravelPlaceDetails/natureLoversPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeOne.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeTwo.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeThree.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeFour.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeFive.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeSix.dart';
+import 'package:mobile_app_ca/FavouritePage/favouritePage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/natureLoversPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/topBeachesPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/familyTripsPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/adventureHikingPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/budgetTripsPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/culturalExperiencePage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/wildlifeSafarisPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/romanticDestinationsPage.dart';
+import 'package:mobile_app_ca/HotelPage/hotelPage.dart';
+import 'package:mobile_app_ca/FoodPage/foodPage.dart';
+import 'package:mobile_app_ca/ItineraryPlannerPage/itineraryPlannerPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +36,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// HOME SCREEN
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -35,6 +47,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
+
+  // Track which chip is selected
+  String selectedChip = "Location";
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  
+  // HOME UI
+
   Widget homeUI() {
     return Center(
       child: Container(
@@ -83,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -114,6 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               const SizedBox(height: 16),
 
+              // Search
               TextField(
                 decoration: InputDecoration(
                   hintText: "Find things to do",
@@ -129,21 +147,74 @@ class _HomeScreenState extends State<HomeScreen> {
 
               const SizedBox(height: 16),
 
+              // Chips
               SizedBox(
                 height: 40,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    ChipItem(title: "Location", selected: true),
-                    ChipItem(title: "Hotels"),
-                    ChipItem(title: "Food"),
-                    ChipItem(title: "Adventure"),
+                  children: [
+                    ChipItem(
+                      title: "Location",
+                      selected: selectedChip == "Location",
+                      onTap: () {
+                        setState(() {
+                          selectedChip = "Location";
+                        });
+                        // Already on Location, no navigation
+                      },
+                    ),
+                    ChipItem(
+                      title: "Hotels",
+                      selected: selectedChip == "Hotels",
+                      onTap: () {
+                        setState(() {
+                          selectedChip = "Hotels";
+                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HotelPage(),
+                          ),
+                        );
+                      },
+                    ),
+                    ChipItem(
+                      title: "Food",
+                      selected: selectedChip == "Food",
+                      onTap: () {
+                        setState(() {
+                          selectedChip = "Food";
+                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FoodPage(),
+                          ),
+                        );
+                      },
+                    ),
+                    ChipItem(
+                      title: "Itinerary",
+                      selected: selectedChip == "Itinerary",
+                      onTap: () {
+                        setState(() {
+                          selectedChip = "Location";
+                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ItineraryPlannerPage(),
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
 
               const SizedBox(height: 20),
 
+              // Popular Section
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -214,101 +285,101 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSpacing: 12,
                 children: [
                   CategoryCard(
-                    title: "Best for Nature Lovers",
+                    title: "Top Waterfalls",
                     icon: Icons.nature,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const NatureLoversPage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NatureLoversPage(),
+                        ),
+                      );
+                    },
                   ),
                   CategoryCard(
                     title: "Top Beaches",
                     icon: Icons.beach_access,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const TopBeachesPage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TopBeachesPage(),
+                        ),
+                      );
+                    },
                   ),
                   CategoryCard(
                     title: "Family Trips",
                     icon: Icons.family_restroom,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const FamilyTripsPage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FamilyTripsPage(),
+                        ),
+                      );
+                    },
                   ),
                   CategoryCard(
                     title: "Adventure & Hiking",
                     icon: Icons.terrain,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const AdventureHikingPage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AdventureHikingPage(),
+                        ),
+                      );
+                    },
                   ),
                   CategoryCard(
                     title: "Budget Friendly Trips",
                     icon: Icons.attach_money,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const BudgetTripsPage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BudgetTripsPage(),
+                        ),
+                      );
+                    },
                   ),
                   CategoryCard(
                     title: "Cultural Experience",
                     icon: Icons.account_balance,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const CulturalExperiencePage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CulturalExperiencePage(),
+                        ),
+                      );
+                    },
                   ),
                   CategoryCard(
                     title: "Wildlife Safaris",
                     icon: Icons.pets,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const WildlifeSafarisPage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WildlifeSafarisPage(),
+                        ),
+                      );
+                    },
                   ),
                   CategoryCard(
                     title: "Romantic Destinations",
                     icon: Icons.favorite,
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) =>
-                    //           const RomanticDestinationsPage(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const RomanticDestinationsPage(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -320,29 +391,42 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+// CHIP
+
 class ChipItem extends StatelessWidget {
   final String title;
   final bool selected;
+  final VoidCallback? onTap;
 
-  const ChipItem({super.key, required this.title, this.selected = false});
+  const ChipItem({
+    super.key,
+    required this.title,
+    this.selected = false,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 10),
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        color: selected ? Colors.blue : Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        title,
-        style: TextStyle(color: selected ? Colors.white : Colors.black),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          color: selected ? Colors.blue : Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          title,
+          style: TextStyle(color: selected ? Colors.white : Colors.black),
+        ),
       ),
     );
   }
 }
+
+// PLACE CARD
 
 class PlaceCard extends StatelessWidget {
   final ImageProvider image;
@@ -422,27 +506,7 @@ class PlaceCard extends StatelessWidget {
   }
 }
 
-class RecommendedCard extends StatelessWidget {
-  final String title;
-
-  const RecommendedCard({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue.shade50,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-}
+// CATEGORY CARD
 
 class CategoryCard extends StatelessWidget {
   final String title;
