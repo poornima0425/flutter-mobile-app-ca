@@ -154,7 +154,7 @@ class ItineraryPlannerPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Fuelcostestimatorpage(),
+                          builder: (context) => const FuelCostEstimatorPage(),
                         ),
                       );
                     },
@@ -170,7 +170,7 @@ class ItineraryPlannerPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Hotelstaycostpage(),
+                          builder: (context) => const HotelStayCostPage(),
                         ),
                       );
                     },

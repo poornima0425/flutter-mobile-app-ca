@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:mobile_app_ca/TravelPlaceDetails/placeFive.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/placeFour.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/placeOne.dart';
@@ -13,7 +12,7 @@ import 'package:mobile_app_ca/TravelPlaceDetails/natureLoversPage.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/familyTripsPage.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/budgetTripsPage.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/wildlifeSafarisPage.dart';
-=======
+
 import 'package:mobile_app_ca/ProfilePage/profilePage.dart';
 import 'package:mobile_app_ca/SearchPage/searchPage.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/placeOne.dart';
@@ -34,7 +33,7 @@ import 'package:mobile_app_ca/TravelPlaceDetails/romanticDestinationsPage.dart';
 import 'package:mobile_app_ca/HotelPage/hotelPage.dart';
 import 'package:mobile_app_ca/FoodPage/foodPage.dart';
 import 'package:mobile_app_ca/ItineraryPlannerPage/itineraryPlannerPage.dart';
->>>>>>> f78f12f61b98a3e9e1ceacb0873634f9ba5d92bc
+
 
 void main() {
   runApp(const MyApp());
