@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app_ca/SignUpPage/signuppage.dart';
+import 'package:mobile_app_ca/main.dart';
+import 'package:mobile_app_ca/Home/homePage.dart' hide MyApp;
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -17,30 +20,35 @@ class LoginPage extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyApp()),
+                  );
                 },
               ),
 
               const SizedBox(height: 20),
 
+              // Welcome Text
               const Text(
                 "Welcome Back",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
 
               const SizedBox(height: 10),
 
               const Text(
-                "Sign in to continue",
+                "Fill in the form and create an account.",
                 style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
 
               const SizedBox(height: 30),
 
-              // Email
+              // Email Field
               TextField(
                 decoration: InputDecoration(
                   filled: true,
@@ -56,7 +64,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Password
+              // Password Field
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
@@ -84,7 +92,13 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(14),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomeScreen()),
+                    );
+                  },
+
                   child: const Text(
                     "Sign in with E-mail",
                     style: TextStyle(fontSize: 18),
@@ -121,7 +135,7 @@ class LoginPage extends StatelessWidget {
                 height: 55,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: Colors.blue.shade800,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
                     ),
@@ -136,16 +150,25 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 30),
 
-              // Sign Up
+              // Sign Up text
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text("Don't have an account? "),
-                  Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
+                children: [
+                  const Text("Have an Account? "),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUpPage()),
+                      );
+                    },
+
+                    child: const Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
