@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'SignUpPage/signUpPage.dart';
 import 'LoginPage/loginPage.dart';
 import 'package:mobile_app_ca/SignUpPage/signuppage.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -13,6 +14,8 @@ void main() async {
     anonKey: 'sb_publishable_DXY067y0R5eTuAffpD6Ing__h2zG_3I',
   );
 
+
+void main() {
   runApp(const MyApp());
 }
 
@@ -23,6 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
+
       home: OnboardingCarousel(),
     );
   }
@@ -47,6 +51,12 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
     "assets/t4.jpg",
   ];
 
+  final List<String> images = [
+    //put images
+    "assets/t2.jpg",
+    "assets/t3.jpg",
+    "assets/t4.jpg",
+  ];
 
   @override
    void initState() {
@@ -82,8 +92,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
     return Scaffold(
       body: Stack(
         children: [
-
-          // FULL-SCREEN IMAGE SLIDER and IMAGE CAROUSEL
+          // FULL-SCREEN IMAGE SLIDER
           PageView.builder(
             controller: _pageController,
             itemCount: images.length,
@@ -115,6 +124,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
             ),
           ),
 
+
           // CONTENT ON TOP
           SafeArea(
             child: Padding(
@@ -145,7 +155,6 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
 
                   const SizedBox(height: 20),
 
-
                   // DOT INDICATORS
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -154,8 +163,6 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
                       (index) => dot(index == currentPage),
                     ),
                   ),
-
-
                   const SizedBox(height: 25),
 
                   // BUTTON
@@ -211,4 +218,19 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
       ),
     );
   }
+  Widget dot(bool isActive) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      width: isActive ? 14 : 8,
+      height: 8,
+      decoration: BoxDecoration(
+        color: isActive ? Colors.white : Colors.white54,
+        borderRadius: BorderRadius.circular(10),
+      ),
+
+    );
+  }
 }
+
+
