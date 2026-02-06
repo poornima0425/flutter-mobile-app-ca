@@ -7,19 +7,13 @@ class PlaceThree extends StatelessWidget {
     required ImageProvider<Object> image,
   });
 
-
-// ---- ADD THIS LIST OF 4 IMAGES ----
+  // ---- ADD THIS LIST OF 4 IMAGES ----
   final List<String> previewImages = const [
     "assets/t29.jpg",
     "assets/t30.jpg",
     "assets/t31.jpg",
     "assets/t32.png",
   ];
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +43,14 @@ class PlaceThree extends StatelessWidget {
                 Positioned(
                   top: 40,
                   left: 20,
-                  child: _iconButton(Icons.arrow_back),
+                   child: _iconButton(context, Icons.arrow_back),
                 ),
 
                 // Favorite button
                 Positioned(
                   top: 40,
                   right: 20,
-                  child: _iconButton(Icons.favorite_border),
+                  child: _iconButton1(Icons.favorite_border),
                 ),
               ],
             ),
@@ -200,8 +194,7 @@ class PlaceThree extends StatelessWidget {
     );
   }
 
-  // Icon Button Widget
-  Widget _iconButton(IconData icon) {
+   Widget _iconButton1(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -211,6 +204,21 @@ class PlaceThree extends StatelessWidget {
       child: Icon(icon),
     );
   }
-}
 
-  
+  // UPDATED Icon Button (BACK WORKS)
+  Widget _iconButton(BuildContext context, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context); // 👈 Go back to previous page
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon),
+      ),
+    );
+  }
+}

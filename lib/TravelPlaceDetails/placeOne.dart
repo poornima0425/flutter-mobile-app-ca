@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class Placeone extends StatelessWidget {
@@ -43,14 +44,14 @@ class Placeone extends StatelessWidget {
                 Positioned(
                   top: 40,
                   left: 20,
-                  child: _iconButton(Icons.arrow_back),
+                  child: _iconButton( Icons.arrow_back),
                 ),
 
                 // Favorite button
                 Positioned(
                   top: 40,
                   right: 20,
-                  child: _iconButton(Icons.favorite_border),
+                  child: _iconButton1(Icons.favorite_border),
                 ),
               ],
             ),
@@ -204,6 +205,33 @@ class Placeone extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Icon(icon),
+    );
+  }
+Widget _iconButton1(IconData icon) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Icon(icon),
+    );
+  }
+
+  // UPDATED Icon Button (BACK WORKS)
+  Widget_iconButton(BuildContext context, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context); 
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon),
+      ),
     );
   }
 }
