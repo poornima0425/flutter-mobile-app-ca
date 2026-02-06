@@ -35,14 +35,14 @@ class PlaceEight extends StatelessWidget {
                 Positioned(
                   top: 40,
                   left: 20,
-                  child: _iconButton(Icons.arrow_back),
+                  child: _iconButton(context, Icons.arrow_back),
                 ),
 
                 // Favorite Button
                 Positioned(
                   top: 40,
                   right: 20,
-                  child: _iconButton(Icons.favorite_border),
+                  child: _iconButton1(Icons.favorite_border),
                 ),
               ],
             ),
@@ -99,8 +99,7 @@ class PlaceEight extends StatelessWidget {
                   // Location
                   Row(
                     children: const [
-                      Icon(Icons.location_on,
-                          size: 16, color: Colors.blue),
+                      Icon(Icons.location_on, size: 16, color: Colors.blue),
                       SizedBox(width: 4),
                       Text(
                         "Unawatuna, Southern Province",
@@ -152,8 +151,7 @@ class PlaceEight extends StatelessWidget {
     );
   }
 
-  // Reusable Icon Button
-  Widget _iconButton(IconData icon) {
+  Widget _iconButton1(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -161,6 +159,23 @@ class PlaceEight extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Icon(icon),
+    );
+  }
+
+  // Icon Button Widget
+  Widget _iconButton(BuildContext context, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon),
+      ),
     );
   }
 }

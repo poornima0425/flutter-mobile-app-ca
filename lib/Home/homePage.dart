@@ -35,6 +35,9 @@ import 'package:mobile_app_ca/FoodPage/foodPage.dart';
 import 'package:mobile_app_ca/ItineraryPlannerPage/itineraryPlannerPage.dart';
 
 
+
+import 'package:mobile_app_ca/ManageBooking/manageBooking.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -86,13 +89,14 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.manage_history), label: ""),
         ],
       ),
 
       body: SafeArea(
         child: IndexedStack(
           index: selectedIndex,
-          children: [homeUI(), SearchPage(), FavouritePage(), ProfilePage()],
+          children: [homeUI(), SearchPage(), FavouritePage(), ProfilePage(), Managebooking()],
         ),
       ),
     );

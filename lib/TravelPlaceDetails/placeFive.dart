@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app_ca/ManageBooking/manageBooking.dart';
 
 class PlaceFive extends StatelessWidget {
   const PlaceFive({
@@ -43,14 +44,14 @@ class PlaceFive extends StatelessWidget {
                 Positioned(
                   top: 40,
                   left: 20,
-                  child: _iconButton(Icons.arrow_back),
+                  child: _iconButton(context, Icons.arrow_back),
                 ),
 
                 // Favorite button
                 Positioned(
                   top: 40,
                   right: 20,
-                  child: _iconButton(Icons.favorite_border),
+                  child: _iconButton1(Icons.favorite_border),
                 ),
               ],
             ),
@@ -109,7 +110,10 @@ class PlaceFive extends StatelessWidget {
                     children: const [
                       Icon(Icons.location_on, size: 16, color: Colors.blue),
                       SizedBox(width: 4),
-                      Text("Uva Province", style: TextStyle(color: Colors.grey)),
+                      Text(
+                        "Uva Province",
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ],
                   ),
 
@@ -177,10 +181,17 @@ class PlaceFive extends StatelessWidget {
                           borderRadius: BorderRadius.circular(14),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Managebooking(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         "Book Now",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
                   ),
@@ -193,8 +204,7 @@ class PlaceFive extends StatelessWidget {
     );
   }
 
-  // Icon Button Widget
-  Widget _iconButton(IconData icon) {
+  Widget _iconButton1(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -202,6 +212,23 @@ class PlaceFive extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Icon(icon),
+    );
+  }
+
+  // Icon Button Widget
+  Widget _iconButton(BuildContext context, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon),
+      ),
     );
   }
 }
