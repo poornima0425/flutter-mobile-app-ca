@@ -2,8 +2,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'LoginPage/loginPage.dart';
 import 'package:mobile_app_ca/SignUpPage/signuppage.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Supabase
+  await Supabase.initialize(
+    url: 'https://ngnjvvkelmgdiiwpuvaz.supabase.co',
+    anonKey: 'sb_publishable_DXY067y0R5eTuAffpD6Ing__h2zG_3I',
+  );
+
   runApp(const MyApp());
 }
 
@@ -29,6 +38,7 @@ class OnboardingCarousel extends StatefulWidget {
 class _OnboardingCarouselState extends State<OnboardingCarousel> {
   final PageController _pageController = PageController();
   int currentPage = 0;
+  Timer? _timer;
 
   final List<String> images = [
     //put image 
@@ -39,20 +49,32 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
 
 
   @override
-  void initState() {
+   void initState() {
     super.initState();
-    Timer.periodic(const Duration(seconds: 3), (timer) {
-      if (currentPage < images.length - 1) {
-        currentPage++;
-      } else {
-        currentPage = 0;
+    _startAutoPlay();
+  }
+
+  void _startAutoPlay() {
+    _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
+      if (_pageController.hasClients) {
+        int nextPage = currentPage + 1;
+        if (nextPage >= images.length) {
+          nextPage = 0; // loop to first
+        }
+        _pageController.animateToPage(
+          nextPage,
+          duration: const Duration(milliseconds: 600),
+          curve: Curves.easeInOut,
+        );
       }
-      _pageController.animateToPage(
-        currentPage,
-        duration: const Duration(milliseconds: 600),
-        curve: Curves.easeInOut,
-      );
     });
+  }
+
+   @override
+  void dispose() {
+    _timer?.cancel(); // stop the timer
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -61,7 +83,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
       body: Stack(
         children: [
 
-          // FULL-SCREEN IMAGE SLIDER
+          // FULL-SCREEN IMAGE SLIDER and IMAGE CAROUSEL
           PageView.builder(
             controller: _pageController,
             itemCount: images.length,
@@ -116,7 +138,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
                   ),
                   const SizedBox(height: 12),
                   const Text(
-                    "If you like to travel, then this is for you!\nExplore the beauty of the world.",
+                    "If you like to travel, then this is for you!\nExplore the beauty of the Sri Lanka.",
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white70, fontSize: 14),
                   ),

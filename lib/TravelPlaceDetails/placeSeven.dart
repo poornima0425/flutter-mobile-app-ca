@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app_ca/ManageBooking/manageBooking.dart';
 
 class PlaceSeven extends StatelessWidget {
-  const PlaceSeven({ super.key,
+  const PlaceSeven({
+    super.key,
     required String title,
-    required ImageProvider<Object> image,});
+    required ImageProvider<Object> image,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +36,14 @@ class PlaceSeven extends StatelessWidget {
                 Positioned(
                   top: 40,
                   left: 20,
-                  child: _iconButton(Icons.arrow_back),
+                  child: _iconButton(context, Icons.arrow_back),
                 ),
 
                 // Favorite button
                 Positioned(
                   top: 40,
                   right: 20,
-                  child: _iconButton(Icons.favorite_border),
+                  child: _iconButton1(Icons.favorite_border),
                 ),
               ],
             ),
@@ -99,8 +102,10 @@ class PlaceSeven extends StatelessWidget {
                     children: const [
                       Icon(Icons.location_on, size: 16, color: Colors.blue),
                       SizedBox(width: 4),
-                      Text("Galle, Southern Province",
-                          style: TextStyle(color: Colors.grey)),
+                      Text(
+                        "Galle, Southern Province",
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ],
                   ),
 
@@ -122,8 +127,6 @@ class PlaceSeven extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  
-
                   // ---- BOOK NOW BUTTON ----
                   SizedBox(
                     width: double.infinity,
@@ -135,10 +138,17 @@ class PlaceSeven extends StatelessWidget {
                           borderRadius: BorderRadius.circular(14),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Managebooking(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         "Book Now",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
                   ),
@@ -151,8 +161,7 @@ class PlaceSeven extends StatelessWidget {
     );
   }
 
-  // Reusable Icon Button
-  Widget _iconButton(IconData icon) {
+  Widget _iconButton1(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -160,6 +169,23 @@ class PlaceSeven extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Icon(icon),
+    );
+  }
+
+  // Icon Button Widget
+  Widget _iconButton(BuildContext context, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon),
+      ),
     );
   }
 }
