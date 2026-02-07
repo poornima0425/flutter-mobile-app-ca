@@ -7,19 +7,13 @@ class PlaceThree extends StatelessWidget {
     required ImageProvider<Object> image,
   });
 
-
-// ---- ADD THIS LIST OF 4 IMAGES ----
+  // ---- ADD THIS LIST OF 4 IMAGES ----
   final List<String> previewImages = const [
     "assets/t29.jpg",
     "assets/t30.jpg",
     "assets/t31.jpg",
     "assets/t32.png",
   ];
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -212,5 +206,3 @@ class PlaceThree extends StatelessWidget {
     );
   }
 }
-
-  
