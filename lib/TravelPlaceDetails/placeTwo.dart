@@ -45,14 +45,14 @@ class PlaceTwo extends StatelessWidget {
                 Positioned(
                   top: 40,
                   left: 20,
-                  child: _iconButton(Icons.arrow_back),
+                  child: _iconButton(context, Icons.arrow_back),
                 ),
 
                 // Favorite button
                 Positioned(
                   top: 40,
                   right: 20,
-                  child: _iconButton(Icons.favorite_border),
+                   child: _iconButton1(Icons.favorite_border),
                 ),
               ],
             ),
@@ -192,9 +192,7 @@ class PlaceTwo extends StatelessWidget {
       ),
     );
   }
-
-  // Icon Button Widget
-  Widget _iconButton(IconData icon) {
+ Widget _iconButton1(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -205,15 +203,29 @@ class PlaceTwo extends StatelessWidget {
     );
   }
 
-
-
-
-
-
-
-
-
-
-
+  // Icon Button Widget
+  Widget _iconButton(BuildContext context, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context); 
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon),
+      ),
+    );
   }
+}
 
+
+
+
+
+
+
+
+  

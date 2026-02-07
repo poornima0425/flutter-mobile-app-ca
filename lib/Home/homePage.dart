@@ -1,4 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeFive.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeFour.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeOne.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeSix.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeThree.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/placeTwo.dart';
+import 'package:mobile_app_ca/FavouritePage/favouritePage.dart';
+import 'package:mobile_app_ca/ProfilePage/profilePage.dart';
+import 'package:mobile_app_ca/SearchPage/searchPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/natureLoversPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/familyTripsPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/budgetTripsPage.dart';
+import 'package:mobile_app_ca/TravelPlaceDetails/wildlifeSafarisPage.dart';
+
 import 'package:mobile_app_ca/ProfilePage/profilePage.dart';
 import 'package:mobile_app_ca/SearchPage/searchPage.dart';
 import 'package:mobile_app_ca/TravelPlaceDetails/placeOne.dart';
@@ -19,7 +33,11 @@ import 'package:mobile_app_ca/TravelPlaceDetails/romanticDestinationsPage.dart';
 import 'package:mobile_app_ca/HotelPage/hotelPage.dart';
 import 'package:mobile_app_ca/FoodPage/foodPage.dart';
 import 'package:mobile_app_ca/ItineraryPlannerPage/itineraryPlannerPage.dart';
+
+
+
 import 'package:mobile_app_ca/ManageBooking/manageBooking.dart';
+
 void main() {
   runApp(const MyApp());
 }
